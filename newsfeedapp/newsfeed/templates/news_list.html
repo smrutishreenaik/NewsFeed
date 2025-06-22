@@ -5,17 +5,19 @@ News Feed App
 {% endblock %}
 
 {% block content %}
-<h1>Welcome to News Feed App</h1>
-<a class="btn btn-primary mb-4" href="{% url "news_create" %}">Add News</a>
+<a class="btn btn-primary my-4" href="{% url "news_create" %}">Add News</a>
 <div class="container row g-3">
     {% for news in  newsList %}
-    <div class="card" style="width: 18rem;">
+    <div class="card m-1" style="width: 18rem;">
   <img class="card-img-top" src="{{news.photo.url}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{news.user.username}}</h5>
     <p class="card-text">{{news.text}}</p>
+
+    {% if news.user == user %}
     <a href="{% url "news_edit" news.id %}" class="btn btn-primary">Edit</a>
     <a href="{% url "news_delete" news.id %}" class="btn btn-danger">Delete</a>
+    {% endif %}
   </div>
 </div>
     {% endfor %}
