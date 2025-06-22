@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+News Feed App
+{% endblock %}
+
+{% block content %}
+<h2>
+    Register Form
+</h2>
+
+<form method="post" class="form m-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">
+       Register
+    </button>
+</form>
+<h5> Already have an account? Login <a href="{% url "login" %}">here</a> </h5>
+
+{% endblock %}
