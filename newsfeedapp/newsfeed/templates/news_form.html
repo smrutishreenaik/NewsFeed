@@ -6,5 +6,19 @@ News Feed App
 
 {% block content %}
 
+<h2>
+    {% if form.instance.pk %}
+    Edit News
+    {% else %}
+    Add News
+    {% endif %}
+</h2>
+
+<form method="post" enctype="multipart/form-data" class="form m-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-warning" type="submit">Add</button>
+</form>
+<a href="{% url "news_list" %}" class="btn btn-primary mx-4">Back</a>
 
 {% endblock %}
