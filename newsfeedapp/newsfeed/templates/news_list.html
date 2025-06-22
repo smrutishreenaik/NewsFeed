@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+News Feed App
+{% endblock %}
+
+{% block content %}
+<a class="btn btn-primary mb-4" href="{% url "news_create" %}">Add News</a>
+<div class="container row g-3">
+    {% for news in  newsList %}
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{news.photo.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{news.user.username}}</h5>
+    <p class="card-text">{{news.text}}</p>
+    <a href="{% url "news_edit" news.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url "news_delete" news.id %}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

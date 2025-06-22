@@ -8,7 +8,7 @@ def index(request):
 
 def news_list(request):
     newsList = News.objects.all().order_by('-created_at')
-    return render(request, 'news_list.html', {'news':news_list})
+    return render(request, 'news_list.html', {'newsList':newsList})
 
 def news_create(request):
     if request.method == "POST":
