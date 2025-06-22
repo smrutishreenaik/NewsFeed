@@ -5,6 +5,7 @@ News Feed App
 {% endblock %}
 
 {% block content %}
+<h1>Welcome to News Feed App</h1>
 <a class="btn btn-primary mb-4" href="{% url "news_create" %}">Add News</a>
 <div class="container row g-3">
     {% for news in  newsList %}

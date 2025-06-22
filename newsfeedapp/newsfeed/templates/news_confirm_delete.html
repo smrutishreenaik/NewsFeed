@@ -6,4 +6,12 @@ News Feed App
 
 {% block content %}
 
+<h1 class="text-center m-4">Are you sure you want to delete?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-success" href="{% url "news_list" %}">Cancel</a>
+</form>
+
 {% endblock %}
